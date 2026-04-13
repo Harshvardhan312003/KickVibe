@@ -92,7 +92,8 @@ const loginUser = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: 'none'
     };
 
     return res
@@ -118,7 +119,8 @@ const logoutUser = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: 'none'
     };
 
     return res
@@ -147,7 +149,8 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
         const options = {
             httpOnly: true,
-            secure: true
+            secure: true,
+            sameSite: 'none'
         };
 
         return res
@@ -174,6 +177,15 @@ const getCurrentUser = asyncHandler(async (req, res) => {
 // Controller to change the user's password
 const changeCurrentPassword = asyncHandler(async (req, res) => {
     const { oldPassword, newPassword } = req.body;
+    
+    if (!oldPassword || !newPassword) {
+        throw new ApiError(400, "Both old password and new password are required");
+    }
+    
+    if (newPassword.length < 6) {
+        throw new ApiError(400, "New password must be at least 6 characters long");
+    }
+    
     const user = await User.findById(req.user?._id);
     const isPasswordCorrect = await user.isPasswordCorrect(oldPassword);
 

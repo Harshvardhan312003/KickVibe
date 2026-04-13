@@ -10,6 +10,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import ProductPage from './pages/ProductPage';
+import SneakersPage from './pages/SneakersPage';
+import BootsPage from './pages/BootsPage';
+import SandalsPage from './pages/SandalsPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import CartPage from './pages/CartPage';
@@ -45,6 +48,9 @@ function App() {
             {/* ... all your routes ... */}
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductsPage />} />
+            <Route path="/sneakers" element={<SneakersPage />} />
+            <Route path="/boots" element={<BootsPage />} />
+            <Route path="/sandals" element={<SandalsPage />} />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/search" element={<SearchPage />} />
 
@@ -56,20 +62,16 @@ function App() {
             <Route path="/cart" element={<ProtectedRoute><CartPage /></ProtectedRoute>} />
             <Route path="/checkout" element={<ProtectedRoute><CheckoutPage /></ProtectedRoute>} />
             <Route path="/order-success/:orderId" element={<ProtectedRoute><OrderSuccessPage /></ProtectedRoute>} />
+            
             {/* Protected Account Routes (Nested) */}
-          <Route path="/account" element={<ProtectedRoute><AccountLayout /></ProtectedRoute>}>
-            <Route index element={<ProfilePage />} />
-            <Route path="orders" element={<OrdersPage />} />
-            <Route path="security" element={<ChangePasswordPage />} />
-            <Route path="wishlist" element={<WishlistPage />} />
-          </Route>
-          
-          <Route element={<AuthLayout />}>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-          </Route>
+            <Route path="/account" element={<ProtectedRoute><AccountLayout /></ProtectedRoute>}>
+              <Route index element={<ProfilePage />} />
+              <Route path="orders" element={<OrdersPage />} />
+              <Route path="security" element={<ChangePasswordPage />} />
+              <Route path="wishlist" element={<WishlistPage />} />
+            </Route>
 
-          <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
+            <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
               <Route index element={<DashboardPage />} />
               <Route path="products" element={<ProductsDashboardPage />} />
               <Route path="orders" element={<OrdersDashboardPage />} />
