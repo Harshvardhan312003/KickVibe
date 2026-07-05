@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
-import { Toaster } from 'react-hot-toast' // <-- IMPORT
+import { Toaster } from 'react-hot-toast' // <-- IMPORT 
 
 // --- IMPORT YOUR PROVIDERS ---
 import { ThemeProvider } from './contexts/ThemeContext.jsx'
