@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 // Get the directory name in ES modules
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(__filename); 
 
 // Define the temp directory path
 const tempDir = path.join(__dirname, "../public/temp");
