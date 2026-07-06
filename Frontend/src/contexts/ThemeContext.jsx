@@ -4,7 +4,7 @@ import { createContext, useState, useEffect } from 'react';
 export const ThemeContext = createContext({
   theme: 'light',
   toggleTheme: () => {},
-});
+}); 
 
 // Create the provider component
 export const ThemeProvider = ({ children }) => {
