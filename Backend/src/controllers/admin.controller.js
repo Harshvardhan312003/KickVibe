@@ -12,7 +12,6 @@ const getAllOrders = asyncHandler(async (req, res) => {
 
     return res.status(200).json(new ApiResponse(200, orders, "All orders retrieved successfully."));
 });
-
 // Controller to get all users in the system
 const getAllUsers = asyncHandler(async (req, res) => {
     const users = await User.find().select("-password -refreshToken").sort({ createdAt: -1 });
