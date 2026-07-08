@@ -43,6 +43,5 @@ const errorHandler = (err, req, res, next) => {
         errors: err.errors || []
     });
 };
-
 // Export both the class and the handler function.
 export { ApiError, errorHandler };
