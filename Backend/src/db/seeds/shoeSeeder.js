@@ -67,7 +67,6 @@ const destroyData = async () => {
         process.exit(1);
     }
 };
-
 // Connect to DB first, then decide what to do based on command line arguments
 connectDB().then(() => {
     if (process.argv[2] === '--destroy') {
